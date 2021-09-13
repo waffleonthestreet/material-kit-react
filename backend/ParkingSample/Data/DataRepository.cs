@@ -15,7 +15,7 @@ namespace ParkingSample.Data
 
         public DataRepository(IConfiguration configuration)
         {
-            _connectionString = configuration["ConnectionsStrings:DefaultConnection"];
+            _connectionString = configuration["ConnectionStrings:DefaultConnection"];
         }
 
         public Question GetQuestion(int questionId)
