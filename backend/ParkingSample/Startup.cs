@@ -39,6 +39,20 @@ namespace ParkingSample
                 upgrader.PerformUpgrade();
             }
 
+            //services.AddCors(options =>
+            //{
+            //    options.AddDefaultPolicy(
+            //        builder =>
+            //        {
+            //            builder.WithOrigins("http://localhost"
+            //                             , "http://localhost:3000"
+            //                             , "http://localhost:3000/register")
+            //            .AllowAnyHeader()
+            //            .AllowAnyMethod()
+            //            .AllowCredentials();
+            //        });
+            //});
+
             services.AddScoped<IDataRepository, DataRepository>();
 
             services.AddRazorPages();
@@ -64,6 +78,16 @@ namespace ParkingSample
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost"
+                                 , "http://localhost:3000"
+                                 , "http://localhost:3000/register")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials();
+            });
 
             app.UseAuthorization();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ParkingSample.Data;
 using ParkingSample.Data.Models;
@@ -19,7 +20,7 @@ namespace ParkingSample.Controllers
         {
             _dataRepository = dataRepository;
         }
-
+                
         [HttpGet]
         public IEnumerable<Question> GetQuestions()
         {

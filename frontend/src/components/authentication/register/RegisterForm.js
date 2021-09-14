@@ -33,8 +33,20 @@ export default function RegisterForm() {
       password: ''
     },
     validationSchema: RegisterSchema,
-    onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+    onSubmit: async () => {
+      // navigate('/dashboard', { replace: true });
+      // const response = await fetch('http://localhost:44391/api/questions');
+      // const questions = await response.json();
+      // alert(questions);
+      fetch('https://localhost:44391/api/questions', {
+        credentials: 'include'
+      })
+        .then((response) => {
+          alert(response.json());
+        })
+        .catch((e) => {
+          alert(e);
+        });
     }
   });
 
