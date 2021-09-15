@@ -20,7 +20,13 @@ namespace ParkingSample.Controllers
         {
             _dataRepository = dataRepository;
         }
-                
+
+        //[HttpGet]
+        //public IActionResult GetQuestions()
+        //{
+        //    return Redirect("~/Dashboard");
+        //}
+
         [HttpGet]
         public IEnumerable<Question> GetQuestions()
         {

@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { useFormik, Form, FormikProvider } from 'formik';
 import eyeFill from '@iconify/icons-eva/eye-fill';
 import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
+
 import { useNavigate } from 'react-router-dom';
 // material
 import { Stack, TextField, IconButton, InputAdornment } from '@material-ui/core';
@@ -14,6 +15,7 @@ import { LoadingButton } from '@material-ui/lab';
 export default function RegisterForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [isRegisterCompleted, setIsRegisterCompleted] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -42,7 +44,16 @@ export default function RegisterForm() {
         credentials: 'include'
       })
         .then((response) => {
-          alert(response.json());
+          // alert(response.json());
+          setIsRegisterCompleted((val) => true);
+          return response.json();
+        })
+        .then((response) => {
+          alert(response);
+          navigate('/dashboard', { replace: true });
+          // if (isRegisterCompleted) {
+          //   navigate('/dashboard');
+          // }
         })
         .catch((e) => {
           alert(e);
