@@ -12,10 +12,14 @@ namespace ParkingSample.Data
     public class DataRepository : IDataRepository
     {
         private readonly string _connectionString;
+        private readonly string _connectionString2;
+
+        #region [Question]
 
         public DataRepository(IConfiguration configuration)
         {
             _connectionString = configuration["ConnectionStrings:DefaultConnection"];
+            _connectionString2 = "Server=localhost;Database=QandA;Trusted_Connection=True;";
         }
 
         public Question GetQuestion(int questionId)
@@ -54,5 +58,22 @@ namespace ParkingSample.Data
                     new { QuestionId = questionId });
             }
         }
+
+        #endregion
+
+        #region [User]
+
+        public bool RegisterUser (UserInsert userInsert)
+        {
+            using (var connection = new SqlConnection(_connectionString2))
+            {
+                connection.Open();
+                connection.Execute(@"INSERT INTO USERINFO (EMAIL, PASSWORD, USERNAME) VALUES (@Email, @Password, @UserName);", userInsert);
+                return true;
+            }
+
+        }
+
+        #endregion
     }
 }

@@ -15,5 +15,7 @@ namespace ParkingSample.Data
         Question GetQuestion(int questionId);
 
         bool QuestionExists(int questionId);
+
+        bool RegisterUser(UserInsert userInsert);
     }
 }

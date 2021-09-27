@@ -33,5 +33,15 @@ namespace ParkingSample.Controllers
             var questions = _dataRepository.GetQuestions();
             return questions;
         }
+
+        [HttpPost]
+        public ActionResult<bool> InsertUser(UserInput userInput)
+        {
+            UserInsert userInsert = new UserInsert(userInput);
+
+            var result = _dataRepository.RegisterUser(userInsert);
+
+            return CreatedAtAction(nameof(InsertUser), true);
+        }
     }
 }

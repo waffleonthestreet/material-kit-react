@@ -35,13 +35,26 @@ export default function RegisterForm() {
       password: ''
     },
     validationSchema: RegisterSchema,
-    onSubmit: async () => {
+    onSubmit: async (values) => {
       // navigate('/dashboard', { replace: true });
       // const response = await fetch('http://localhost:44391/api/questions');
       // const questions = await response.json();
       // alert(questions);
+
+      // fetch('https://localhost:44391/api/questions', {
+      //   credentials: 'include'
+      // })
       fetch('https://localhost:44391/api/questions', {
-        credentials: 'include'
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          FirstName: values.firstName,
+          LastName: values.lastName,
+          Password: values.password,
+          Email: values.email
+        })
       })
         .then((response) => {
           // alert(response.json());
