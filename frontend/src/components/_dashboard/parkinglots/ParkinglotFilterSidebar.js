@@ -51,6 +51,17 @@ export const FILTER_COLOR_OPTIONS = [
   '#FFC107'
 ];
 
+///
+export const FILTER_BY_LOCATION = [
+  'California',
+  'Illinois',
+  'Hawaii',
+  'Iowa',
+  'Michigan',
+  'Nebraska'
+];
+export const FILTER_BY_USING = ['사용중', '사용안함'];
+
 // ---------------------------------------------------------------
 
 ParkinglotShopFilterSidebar.propTypes = {

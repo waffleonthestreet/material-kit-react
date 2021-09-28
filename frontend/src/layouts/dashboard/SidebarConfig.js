@@ -6,6 +6,7 @@ import fileTextFill from '@iconify/icons-eva/file-text-fill';
 import lockFill from '@iconify/icons-eva/lock-fill';
 import personAddFill from '@iconify/icons-eva/person-add-fill';
 import alertTriangleFill from '@iconify/icons-eva/alert-triangle-fill';
+import edit2Outline from '@iconify/icons-eva/edit-2-outline';
 
 // ----------------------------------------------------------------------
 
@@ -50,7 +51,7 @@ const sidebarConfig = [
   {
     title: 'After register',
     path: '/dashboard/parkinglots',
-    icon: getIcon(alertTriangleFill)
+    icon: getIcon(edit2Outline)
   }
 ];
 
