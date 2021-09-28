@@ -78,7 +78,7 @@ export default function ParkinglotShopFilterSidebar({
         endIcon={<Icon icon={roundFilterList} />}
         onClick={onOpenFilter}
       >
-        Filters&npsp;
+        Filters&nbsp;
       </Button>
 
       <FormikProvider value={formik}>

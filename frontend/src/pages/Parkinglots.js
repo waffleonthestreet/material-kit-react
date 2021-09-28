@@ -22,7 +22,7 @@ export default function EParkinglotShop() {
     initialValues: {
       gender: '',
       category: '',
-      color: '',
+      colors: '',
       priceRange: '',
       rating: ''
     },
