@@ -49,7 +49,7 @@ const sidebarConfig = [
   },
   {
     title: 'After register',
-    path: '/404',
+    path: '/dashboard/parkinglots',
     icon: getIcon(alertTriangleFill)
   }
 ];
